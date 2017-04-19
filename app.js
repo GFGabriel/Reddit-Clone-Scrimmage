@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
     //console log that table
     res.render('index', {data})
     linkQuery.sortArray(data, newArray)
+    linkQuery
     console.log(newArray);
   })
   // linkQuery.getComments()

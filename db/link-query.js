@@ -9,20 +9,38 @@ function getComments() {
 }
 
 function sortArray(data, array) {
-  console.log(data)
+  // console.log(data)
   let id = 1
   let miniArray = []
   for (var i = 0; i < data.length; i++) {
-    console.log(data[i].id)
-    if (data[i].id === id) {
-      console.log('match');
-      miniArray.push(data[i])
-      id = data[i].id
-    } else {
-      console.log('no match');
-      array.push(miniArray)
-      miniArray = []
-      miniArray.push(data[i])
+    // console.log(i)
+    // console.log(data[i].id)
+    if (i === data.length - 1) {
+      // console.log('last one')
+      if (data[i].id === id) {
+        // console.log('match');
+        miniArray.push(data[i])
+        id = data[i].id
+        array.push(miniArray)
+      } else {
+        // console.log('no match');
+        array.push(miniArray)
+        miniArray = []
+        miniArray.push(data[i])
+        array.push(miniArray)
+      }
+    } else if (i < data.length - 1) {
+      // console.log('not last one')
+      if (data[i].id === id) {
+        // console.log('match');
+        miniArray.push(data[i])
+        id = data[i].id
+      } else {
+        // console.log('no match');
+        array.push(miniArray)
+        miniArray = []
+        miniArray.push(data[i])
+      }
     }
   }
 }
